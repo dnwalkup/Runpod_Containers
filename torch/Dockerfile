@@ -25,7 +25,7 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 ADD start.sh /
 
-RUN chmod +x /start.sh
+RUN chmod 755 /start.sh
 
 CMD [ "/start.sh" ]
 
