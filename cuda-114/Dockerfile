@@ -19,8 +19,14 @@ RUN apt-get update --yes && \
     openssh-server &&\
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+RUN apt-get update
+RUN apt-get -y install software-properties-common gcc
+RUN add-apt-repository -y ppa:deadsnakes/ppa
+RUN apt-get update
 RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
+RUN apt-get -y install python3-distutils
+RUN apt-get -y install python3-apt
 RUN pip3 install jupyterlab
 RUN pip3 install ipywidgets
 RUN pip3 install pycuda
@@ -32,4 +38,3 @@ ADD start.sh /
 RUN chmod +x /start.sh
 
 CMD [ "/start.sh" ]
-
