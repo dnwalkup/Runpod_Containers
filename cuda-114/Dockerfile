@@ -1,4 +1,6 @@
-ARG BASE_IMAGE=nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+## Dockerfile
+
+ARG BASE_IMAGE=nvidia/cuda:11.4.2-cudnn8-devel-ubuntu20.04
 
 FROM ${BASE_IMAGE} as dev-base
 
@@ -21,6 +23,9 @@ RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
 RUN pip3 install jupyterlab
 RUN pip3 install ipywidgets
+RUN pip3 install pycuda
+RUN pip3 install ipython
+RUN pip3 install Pillow
 
 ADD start.sh /
 
