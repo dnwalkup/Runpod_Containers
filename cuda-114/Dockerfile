@@ -27,11 +27,21 @@ RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
 RUN apt-get -y install python3-distutils
 RUN apt-get -y install python3-apt
+RUN apt -y install rename
+RUN apt-get -y install zip unzip
 RUN pip3 install jupyterlab
 RUN pip3 install ipywidgets
 RUN pip3 install pycuda
 RUN pip3 install ipython
 RUN pip3 install Pillow
+RUN pip3 install triton
+RUN pip3 install transformers
+RUN pip3 install tensorboard
+RUN pip3 install OmegaConf
+RUN pip3 install tqdm
+RUN pip3 install ftfy
+RUN pip3 install wget
+RUN pip3 install -U --no-cache-dir gdown
 
 ADD start.sh /
 
